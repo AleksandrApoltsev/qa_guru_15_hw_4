@@ -11,6 +11,7 @@ public class FormPage {
     private final static String TITLE_TEXT = "Student Registration Form";
     private CalendarPage calendarPage = new CalendarPage();
     private HobbiesPage hobbiesPage = new HobbiesPage();
+    private ResultsModal resultsModal = new ResultsModal();
     private SelenideElement
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
@@ -91,6 +92,17 @@ public class FormPage {
     }
     public FormPage setSubmit () {
         $("#submit").click();
+
+        return this;
+    }
+
+    public FormPage checkResultsTableVisible () {
+        resultsModal.checkVisible();
+
+        return this;
+    }
+    public FormPage checkResult (String key, String value) {
+        resultsModal.checkResult(key, value);
 
         return this;
     }
