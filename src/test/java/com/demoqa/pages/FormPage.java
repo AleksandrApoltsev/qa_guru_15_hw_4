@@ -95,7 +95,6 @@ public class FormPage {
 
         return this;
     }
-
     public FormPage checkResultsTableVisible () {
         resultsModal.checkVisible();
 
@@ -106,5 +105,4 @@ public class FormPage {
 
         return this;
     }
-
 }
