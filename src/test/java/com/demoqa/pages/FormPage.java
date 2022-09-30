@@ -17,7 +17,7 @@ public class FormPage {
             lastNameInput = $("#lastName"),
             emailInput = $("#userEmail");
 
-    public FormPage openPage (){
+    public FormPage openPage() {
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text(TITLE_TEXT));
         executeJavaScript("$('footer').remove()");
@@ -25,83 +25,96 @@ public class FormPage {
 
         return this;
     }
-    public FormPage setFirstName (String value) {
+
+    public FormPage setFirstName(String value) {
         firstNameInput.setValue(value);
 
         return this;
     }
-   public FormPage setLastName (String value) {
-       lastNameInput.setValue(value);
 
-        return this;
-    }
-   public FormPage setUserEmail (String value) {
-       emailInput.setValue(value);
+    public FormPage setLastName(String value) {
+        lastNameInput.setValue(value);
 
         return this;
     }
 
-    public FormPage setGender (String value) {
+    public FormPage setUserEmail(String value) {
+        emailInput.setValue(value);
+
+        return this;
+    }
+
+    public FormPage setGender(String value) {
         $("#genterWrapper").$(byText(value)).click();
 
         return this;
     }
-    public FormPage setUserNumber (String value) {
+
+    public FormPage setUserNumber(String value) {
         $("#userNumber").setValue(value);
 
         return this;
     }
-    public FormPage setSubjects (String value) {
+
+    public FormPage setSubjects(String value) {
         $("#subjectsInput").setValue(value).pressEnter();
 
         return this;
     }
-    public FormPage setBirthDay (String day, String month, String year) {
+
+    public FormPage setBirthDay(String day, String month, String year) {
         $("#dateOfBirthInput").click();
         calendarPage.setDate(day, month, year);
 
         return this;
     }
-    public FormPage setHobbiesWrapper (String value) {
+
+    public FormPage setHobbiesWrapper(String value) {
         hobbiesPage.setHobbies(value);
 
         return this;
 
     }
-    public FormPage setUploadPicture (String value) {
+
+    public FormPage setUploadPicture(String value) {
         $("#uploadPicture").uploadFromClasspath(value);
 
         return this;
     }
-    public FormPage setCurrentAddress (String value) {
+
+    public FormPage setCurrentAddress(String value) {
         $("#currentAddress").setValue(value);
 
         return this;
     }
-    public FormPage setState (String value) {
+
+    public FormPage setState(String value) {
         $("#state").click();
         $("#stateCity-wrapper").$(byText(value)).click();
 
         return this;
     }
-    public FormPage setCity (String value) {
+
+    public FormPage setCity(String value) {
         $("#city").click();
         $("#stateCity-wrapper").$(byText(value)).click();
 
         return this;
     }
-    public FormPage setSubmit () {
+
+    public FormPage setSubmit() {
         $("#submit").click();
 
         return this;
     }
 
-    public FormPage checkResultsTableVisible () {
+    public FormPage checkResultsTableVisible() {
         resultsModal.checkVisible();
 
         return this;
     }
-    public FormPage checkResult (String key, String value) {
+
+    public FormPage checkResult(String key, String value) {
         resultsModal.checkResult(key, value);
 
         return this;

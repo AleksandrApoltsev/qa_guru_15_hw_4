@@ -9,43 +9,39 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class AutomationPracticeFormPageObjectsTest {
+public class AutomationPracticeFormPageObjectsTest extends TestBase {
     FormPage formPage = new FormPage();
+    TestData testData = new TestData();
 
-    @BeforeAll
-    static void configuration() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-        Configuration.holdBrowserOpen = true;
-    }
+
     @Test
     void formTest() {
         formPage.openPage()
-                .setFirstName("Aleksandr")
-                .setLastName("Apoltsev")
-                .setUserEmail("apoltsev@mail.ru")
-                .setGender("Male")
-                .setUserNumber("9876543210")
-                .setBirthDay("08", "June", "1992")
-                .setSubjects("English")
-                .setHobbiesWrapper("Sports")
-                .setHobbiesWrapper("Reading")
-                .setUploadPicture("1.jpg")
-                .setCurrentAddress("City Street 123456")
-                .setState("NCR")
-                .setCity("Delhi")
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setUserEmail(testData.email)
+                .setGender(testData.gender)
+                .setUserNumber(testData.number)
+                .setBirthDay(testData.day, testData.month, testData.year)
+                .setSubjects(testData.subjects)
+                .setHobbiesWrapper(testData.hobbies)
+                .setUploadPicture(testData.picture)
+                .setCurrentAddress(testData.address)
+                .setState(testData.state)
+                .setCity(testData.city)
                 .setSubmit();
 
         formPage.checkResultsTableVisible()
-                .checkResult("Student Name", "Aleksandr Apoltsev")
-                .checkResult("Student Email", "apoltsev@mail.ru")
-                .checkResult("Gender", "Male")
-                .checkResult("Mobile", "9876543210")
-                .checkResult("Subjects", "English")
-                .checkResult("Hobbies", "Sports, Reading")
-                .checkResult("Picture", "1.jpg")
-                .checkResult("Address", "City Street 123456")
-                .checkResult("State and City", "NCR Delhi");
+                .checkResult("Student Name", testData.firstName + " " + testData.lastName)
+                .checkResult("Student Email", testData.email)
+                .checkResult("Gender", testData.gender)
+                .checkResult("Mobile", testData.number)
+                .checkResult("Date of Birth", testData.day + " " + testData.month + "," + testData.year)
+                .checkResult("Subjects", testData.subjects)
+                .checkResult("Hobbies", testData.hobbies)
+                .checkResult("Picture", testData.picture)
+                .checkResult("Address", testData.address)
+                .checkResult("State and City", testData.state + " " + testData.city);
 
     }
 }
