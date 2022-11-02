@@ -1,13 +1,9 @@
 package com.demoqa.tests;
 
-import com.codeborne.selenide.Configuration;
 import com.demoqa.pages.FormPage;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
 
 public class AutomationPracticeFormPageObjectsTest extends TestBase {
     FormPage formPage = new FormPage();
@@ -15,6 +11,7 @@ public class AutomationPracticeFormPageObjectsTest extends TestBase {
 
 
     @Test
+    @DisplayName("Проверка формы")
     void formTest() {
         formPage.openPage()
                 .setFirstName(testData.firstName)
