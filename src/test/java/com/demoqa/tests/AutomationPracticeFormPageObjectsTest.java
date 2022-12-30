@@ -11,7 +11,7 @@ public class AutomationPracticeFormPageObjectsTest extends TestBase {
 
 
     @Test
-    @DisplayName("Проверка формы")
+    @DisplayName("Checking form")
     void formTest() {
         formPage.openPage()
                 .setFirstName(testData.firstName)

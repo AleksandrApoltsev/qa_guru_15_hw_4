@@ -13,7 +13,7 @@ public class TestData {
     String email = faker.internet().emailAddress();
     String gender = faker.demographic().sex();
     String number = faker.phoneNumber().subscriberNumber(10);
-    String day = String.valueOf(faker.number().numberBetween(1, 30));
+    String day = String.valueOf(faker.number().numberBetween(10, 30));
     String month = "June";
     String year = String.valueOf(faker.number().numberBetween(1900, 2010));
     String subjects = "English";
